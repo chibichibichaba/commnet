@@ -74,9 +74,9 @@ def time_to_nodesize_plot(k_av, iterations,N_start, N_stop):
     print(average_list)
 
     plt.semilogy(range(N_start, N_stop+1), average_list, color = "black")    
-    plt.ylabel("Time in seconds (sec)")
-    plt.xlabel("N of the node size 2^N ")
-    plt.title("Time to Node Size Relation")
+    plt.ylabel("Average Time (s)")
+    plt.xlabel("Exponent N (Network Size 2^N)")
+    plt.title("Time to Network Size 2^N")
     plt.show()
 #================================================================#
 #                         Testing                                #
