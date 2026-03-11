@@ -1,7 +1,7 @@
 import numpy as np
 
 # Create edge list (start_node, end_node, weight)
-# This example edge list is from discussion slides pdf page 6
+# This example edge list is from week 4 discussion 1 slides pdf page 6
 # where A = 0, B = 1 ..... S = 8
 edge_list = [
     (0, 1, 1),
@@ -64,3 +64,5 @@ def dijkstra(edge_list, origin_node, destination_node):
     # Reverse path to obtain path from origin node to destination node
     return path[::-1]
 
+# Find shortest path from S to H
+print(f"Shortest path: {dijkstra(edge_list, 8, 7)}")
