@@ -53,7 +53,11 @@ def dijkstra(edge_list, origin_node, destination_node):
                 if (predecessor_distance[j][1] < minimum_distance):
                     minimum_distance = predecessor_distance[j][1]
                     current_node = j
-        
+                    if (predecessor_distance[j][1]>= np.inf):
+                        return 0
+
+    
+    
     # Trace smallest path from destination node to origin node
     path = []
     current_node = destination_node

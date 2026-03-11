@@ -71,7 +71,7 @@ def time_to_nodesize_plot(k_av, iterations,N_start, N_stop):
         edge_list = graph_generation(2**i, k_av)
         average_time = average_graph_time(edge_list, 2**i, iterations)
         average_list.append(average_time)
-        print(f"Done with iteration {i}")
+        print(f"Done with N^{i}")
 
     print(average_list)
 
@@ -91,7 +91,7 @@ m = 20
 #print(average_graph_time(graph_generation(N, k_av), N, m))
 
 N_start = 5
-N_stop = 11
+N_stop = 8
 
 time_to_nodesize_plot(k_av, m, N_start, N_stop)
 
