@@ -4,9 +4,8 @@ from project0 import dijkstra
 import time
 import matplotlib.pyplot as plt
 
-#================================================================#
-#                       Functions                                #
-#================================================================#
+
+#Functions                                
 
 def graph_generation(N,k_av):
 
@@ -78,9 +77,8 @@ def time_to_nodesize_plot(k_av, iterations,N_start, N_stop):
     plt.xlabel("Exponent N (Network Size 2^N)")
     plt.title("Time to Network Size 2^N")
     plt.show()
-#================================================================#
-#                         Testing                                #
-#================================================================#
+
+## Testing ##                                
 
 #N = 2**5
 k_av = 20
