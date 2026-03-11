@@ -4,9 +4,9 @@ from project0 import dijkstra
 import time
 import matplotlib.pyplot as plt
 
-#================================================================#
-#                       Functions                                #
-#================================================================#
+
+#----------------------------Functions---------------------------------#
+
 
 def graph_generation(N,k_av):
 
@@ -27,11 +27,13 @@ def graph_generation(N,k_av):
 
             edge_connection = (current_node, destination_node, 1)
             check_edge_connection = (destination_node, current_node, 1)
+            other_edge_connection = (destination_node, current_node, 1)
             # Nodes are unidirectional so any copy can be removed
             if check_edge_connection in edge_list:
                 continue
             
             edge_list.append(edge_connection)
+            edge_list.append(other_edge_connection)
 
 
     return edge_list
@@ -78,9 +80,9 @@ def time_to_nodesize_plot(k_av, iterations,N_start, N_stop):
     plt.xlabel("Exponent N (Network Size 2^N)")
     plt.title("Time to Network Size 2^N")
     plt.show()
-#================================================================#
-#                         Testing                                #
-#================================================================#
+
+#---------------------------Testing-----------------------------#
+
 
 #N = 2**5
 k_av = 20
@@ -89,7 +91,7 @@ m = 20
 #print(average_graph_time(graph_generation(N, k_av), N, m))
 
 N_start = 5
-N_stop = 6
+N_stop = 11
 
 time_to_nodesize_plot(k_av, m, N_start, N_stop)
 
