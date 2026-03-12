@@ -2,6 +2,8 @@ import numpy as np
 import random as rnd
 import time
 import matplotlib.pyplot as plt
+
+#----------------------------Functions---------------------------------#
 def dijkstra(edge_list, origin_node, destination_node):
     # Maximum node number (nodes can be only outgoing or incoming so need to check both)
     max_node_outgoing = max(edge_list[i][0] for i in range(len(edge_list)))
@@ -49,7 +51,6 @@ def dijkstra(edge_list, origin_node, destination_node):
 
     # Reverse path to obtain path from origin node to destination node
     return path[::-1]
-#----------------------------Functions---------------------------------#
 
 
 def graph_generation(N,k_av):
@@ -58,13 +59,10 @@ def graph_generation(N,k_av):
     p = k_av/N # Using the relationship between the average degree and edge connection probability <k> ~=~ N*p
     
     for current_node in range(N):
-        
-        for destination_node in range(N):
-            
+        for destination_node in range(N): 
             # We assume nodes dont connect with themselves
             if (current_node == destination_node):
                 continue
-            
             # Our probability of having an edge with an unique node
             if (rnd.uniform(0.0, 1.0) > p):
                 continue
@@ -78,8 +76,7 @@ def graph_generation(N,k_av):
             
             edge_list.append(edge_connection)
             edge_list.append(other_edge_connection)
-
-
+            
     return edge_list
 
 
@@ -87,17 +84,15 @@ def average_graph_time(edge_list, N, iterations):
     time_per_test = []
 
     i = 0
-    while (i < iterations): 
-        
+    while (i < iterations):   
         origin_node = rnd.randint(0,N-1)
         destination_node = rnd.randint(0,N-1)
-
         
         start_time = time.time()
         path = dijkstra(edge_list,origin_node, destination_node)
         total_time = time.time() - start_time
         
-        # Redo if no path from origin node to destination node
+        # Redo if there is no path from origin node to destination node
         if (path == 0):
             continue
 
@@ -108,11 +103,9 @@ def average_graph_time(edge_list, N, iterations):
 
 
 def time_to_nodesize_plot(k_av, iterations,N_start, N_stop):
-
     average_list = []
 
     for i in range(N_start, N_stop+1):
-        
         edge_list = graph_generation(2**i, k_av)
         average_time = average_graph_time(edge_list, 2**i, iterations)
         average_list.append(average_time)
@@ -128,8 +121,8 @@ def time_to_nodesize_plot(k_av, iterations,N_start, N_stop):
     plt.title("Log Average Time vs Network Size $2^N$")
     plt.show()
 
-#---------------------------Testing-----------------------------#
 
+#---------------------------Testing-----------------------------#
 k_av = 20
 m = 20
 
