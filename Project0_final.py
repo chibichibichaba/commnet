@@ -130,21 +130,21 @@ def time_to_nodesize_plot(k_av, iterations,N_start, N_stop):
 
 # This example edge list is from week 4 discussion 1 slides pdf page 6
 # where A = 0, B = 1 ..... S = 8
-edge_list = [
-    (0, 1, 1),
-    (0, 5, 5),
-    (1, 3, 2),
-    (1, 7, 1),
-    (2, 0, 2),
-    (3, 2, 3),
-    (4, 2, 1),
-    (5, 6, 1),
-    (5, 7, 3),
-    (6, 4, 1),
-    (7, 6, 1),
-    (8, 3, 8),
-    (8, 4, 1)
-]
+# edge_list = [
+#     (0, 1, 1),
+#     (0, 5, 5),
+#     (1, 3, 2),
+#     (1, 7, 1),
+#     (2, 0, 2),
+#     (3, 2, 3),
+#     (4, 2, 1),
+#     (5, 6, 1),
+#     (5, 7, 3),
+#     (6, 4, 1),
+#     (7, 6, 1),
+#     (8, 3, 8),
+#     (8, 4, 1)
+# ]
 
 # print the shortest path
 # print(dijkstra(edge_list, 8, 7))
