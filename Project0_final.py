@@ -27,8 +27,8 @@ def dijkstra(edge_list, origin_node, destination_node):
         # Set current node as visited            
         visited[current_node] = True
 
-        # Exit loop it destination node is reached
-        if current_node == destination_node:
+        # Exit loop if destination node is reached
+        if (current_node == destination_node):
             break
 
         # Find the unvisited node with the smallest distance to origin node
@@ -38,9 +38,10 @@ def dijkstra(edge_list, origin_node, destination_node):
                 if (predecessor_distance[j][1] < minimum_distance):
                     minimum_distance = predecessor_distance[j][1]
                     current_node = j
-                    # Return 0 if there is no path from origin node to destination node
-                    if (predecessor_distance[j][1]>= np.inf):
-                        return 0
+
+        # Return 0 if there is no path from origin node to destination node (Unvisited node have infinite distance to origin node)
+        if (minimum_distance >= np.inf):
+            return 0
                     
     # Trace smallest path from destination node to origin node
     path = []
