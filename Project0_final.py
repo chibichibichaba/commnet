@@ -4,6 +4,8 @@ import time
 import matplotlib.pyplot as plt
 
 #----------------------------Functions---------------------------------#
+
+# Dijkstra's algorithm
 def dijkstra(edge_list, origin_node, destination_node):
     # Maximum node number (nodes can be only outgoing or incoming so need to check both)
     max_node_outgoing = max(edge_list[i][0] for i in range(len(edge_list)))
@@ -53,7 +55,7 @@ def dijkstra(edge_list, origin_node, destination_node):
     # Reverse path to obtain path from origin node to destination node
     return path[::-1]
 
-
+# Generate random graph with N nodes and average degree k_av
 def graph_generation(N,k_av):
 
     edge_list = []
@@ -80,7 +82,7 @@ def graph_generation(N,k_av):
             
     return edge_list
 
-
+# Measure average Dijkstra runtime over random node pairs
 def average_graph_time(edge_list, N, iterations):
     time_per_test = []
 
@@ -102,7 +104,7 @@ def average_graph_time(edge_list, N, iterations):
 
     return np.average(time_per_test)
 
-
+# Plot runtime growth versus increasing network size
 def time_to_nodesize_plot(k_av, iterations,N_start, N_stop):
     average_list = []
 
@@ -114,6 +116,7 @@ def time_to_nodesize_plot(k_av, iterations,N_start, N_stop):
 
     print(average_list)
 
+    # Plot settings
     plt.plot(range(N_start, N_stop+1), np.log(average_list), color = "black")
     plt.xticks(range(N_start, N_stop + 1))
     plt.grid() 
@@ -124,10 +127,33 @@ def time_to_nodesize_plot(k_av, iterations,N_start, N_stop):
 
 
 #---------------------------Testing-----------------------------#
+
+# This example edge list is from week 4 discussion 1 slides pdf page 6
+# where A = 0, B = 1 ..... S = 8
+edge_list = [
+    (0, 1, 1),
+    (0, 5, 5),
+    (1, 3, 2),
+    (1, 7, 1),
+    (2, 0, 2),
+    (3, 2, 3),
+    (4, 2, 1),
+    (5, 6, 1),
+    (5, 7, 3),
+    (6, 4, 1),
+    (7, 6, 1),
+    (8, 3, 8),
+    (8, 4, 1)
+]
+
+# print the shortest path
+# print(dijkstra(edge_list, 8, 7))
+
 k_av = 20
 m = 20
 
-N_start = 3
+N_start = 5
 N_stop = 13
+
 
 time_to_nodesize_plot(k_av, m, N_start, N_stop)
